@@ -1,5 +1,6 @@
 package com.isj.Annuarium.webapp.presentation.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import com.isj.Annuarium.webapp.model.entities.User;
@@ -20,18 +21,19 @@ public class LoginController {
 	private UserService userService;
 
 	@RequestMapping(value={"/login"}, method = RequestMethod.GET)
-	public ModelAndView login(){
+	public ModelAndView login(HttpSession session){
 		final ModelAndView modelAndView = new ModelAndView();
+
 		final Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		final User user = userService.findUserByEmail(auth.getName());
 
 		if(user != null) {
-			modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
+			session.setAttribute("userName", user.getName() + " " + user.getLastName());
 		}
 		else  {
-			modelAndView.addObject("userName", "");
+			session.setAttribute("userName", "");
 		}
-		
+
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}

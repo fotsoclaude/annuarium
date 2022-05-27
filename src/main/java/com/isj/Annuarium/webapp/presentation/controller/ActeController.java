@@ -1,9 +1,13 @@
 package com.isj.Annuarium.webapp.presentation.controller;
 
 import com.isj.Annuarium.webapp.model.dto.ActeDto;
+import com.isj.Annuarium.webapp.model.entities.User;
 import com.isj.Annuarium.webapp.service.IActe;
+import com.isj.Annuarium.webapp.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,16 +25,21 @@ public class ActeController {
 	@Autowired
 	IActe iActe;
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("/")
 	public String pageAccueil(Model model) {
 		return "index";
 	}
+
 	@GetMapping("/listeactes")
 	public String Listing(Model model) {
 		//appel de la couche service pour avoir la liste des actes
 
 		List<ActeDto> acteDtos = iActe.listeActes();
 		model.addAttribute("acteDtos",acteDtos);
+
 
 		return "list";
 	}
@@ -60,7 +69,7 @@ public class ActeController {
 		return "rechercher";
 	}
 
-	@PostMapping("/rechercherA")
+	@GetMapping("/rechercherA")
 	public String found(@RequestParam(name="nom") String nom, Model model) {
 		List<ActeDto> acteDto = iActe.searchActeByKeyword(nom);
 		model.addAttribute("Result",acteDto);
@@ -90,5 +99,4 @@ public class ActeController {
 		iActe.updateActe(acteDto);
 		return "redirect:/listeactes";
 	}
-
 }

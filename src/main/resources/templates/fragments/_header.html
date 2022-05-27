@@ -13,6 +13,7 @@
 
                 <nav id="navbar" class="navbar">
                     <ul>
+                        <li sec:authorize="isAuthenticated" th:utext="${session.userName}"></li>
                         <li><a class="nav-link scrollto active" th:href="@{/}">Accueil</a></li>
                         <li><a class="nav-link scrollto" href="#about">À propos</a></li>
                         <!--li><a class="nav-link scrollto" href="#services">Services</a></li>
@@ -25,9 +26,8 @@
                                 <li><a th:href="@{/rechercher}">Rechercher un acte</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link scrollto" href="">Demander copie</a></li>
                         <li><a class="getstarted scrollto" href="#about">Contact</a></li>
-                        <li><a sec:authorize="isAuthenticated" th:href="@{/logout}" class="getstarted scrollto" href="#about">Déconnexion</a></li>
+                        <li><a sec:authorize="isAuthenticated" th:href="@{/logout}" class="getstarted scrollto" style="background-color:#f00;" href="#about">Déconnexion</a></li>
                         <li><a sec:authorize="!isAuthenticated" th:href="@{/login}" class="getstarted scrollto" href="#about">Connexion</a></li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
