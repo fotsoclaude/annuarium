@@ -34,6 +34,7 @@ public class ActeController {
 
 		return "list";
 	}
+
 	@GetMapping("/enregistrer")
 	public String Saving(Model model) {
 		ActeDto acteDto = new ActeDto();
@@ -41,16 +42,13 @@ public class ActeController {
 		model.addAttribute("acteDto", acteDto);
 		return "enregistrer";
 	}
+
 	@GetMapping("/edition")
 	public String updateActe(@RequestParam(name = "numero") String numero,Model model) {
 		ActeDto acteDto = iActe.searchActeNumero(numero);
 		model.addAttribute("acteDto", acteDto);
 		return "editer";
 	}
-
-
-
-
 
 	@GetMapping("/rechercher")
 	public String found(Model model) {
@@ -61,12 +59,14 @@ public class ActeController {
 
 		return "rechercher";
 	}
+
 	@PostMapping("/rechercherA")
 	public String found(@RequestParam(name="nom") String nom, Model model) {
 		List<ActeDto> acteDto = iActe.searchActeByKeyword(nom);
 		model.addAttribute("Result",acteDto);
 		return "rechercher";
 	}
+
 	@GetMapping("/detail")
 	public String pagedetail(@RequestParam(name = "numero") String numero, Model model) {
 		ActeDto acteDto = iActe.searchActeNumero(numero);
@@ -82,24 +82,13 @@ public class ActeController {
 	@PostMapping("/enregistreracte")
 	public String enregistrerActe(@ModelAttribute ActeDto acteDto,Model model) {
 		iActe.saveActe(acteDto);
-
 		return "redirect:/listeactes";
-
-
 	}
-
-
 
 	@PostMapping("/editer")
 	public String editionForm(@ModelAttribute ActeDto acteDto,Model model) {
 		iActe.updateActe(acteDto);
-
 		return "redirect:/listeactes";
-
-
 	}
-
-
-
 
 }

@@ -27,6 +27,8 @@
                         </li>
                         <li><a class="nav-link scrollto" href="">Demander copie</a></li>
                         <li><a class="getstarted scrollto" href="#about">Contact</a></li>
+                        <li><a sec:authorize="isAuthenticated" th:href="@{/logout}" class="getstarted scrollto" href="#about">Déconnexion</a></li>
+                        <li><a sec:authorize="!isAuthenticated" th:href="@{/login}" class="getstarted scrollto" href="#about">Connexion</a></li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>

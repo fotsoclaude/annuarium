@@ -14,6 +14,7 @@
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
       <h1>Bienvenu sur notre annuaire pour acte de naissance!!!</h1>
       <h2>Notre équipe a conçu ce site uniquement pour satifaire vos requêtes</h2>
+      <h3 sec:authorize="isAuthenticated" th:utext="{userName}"></h3>
       <a href="#about" class="btn-get-started scrollto">Allons-y</a>
     </div>
   </section><!-- End Hero -->

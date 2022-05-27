@@ -22,7 +22,16 @@ public class LoginController {
 	@RequestMapping(value={"/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
 		final ModelAndView modelAndView = new ModelAndView();
+		final Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		final User user = userService.findUserByEmail(auth.getName());
 
+		if(user != null) {
+			modelAndView.addObject("userName", user.getName() + " " + user.getLastName());
+		}
+		else  {
+			modelAndView.addObject("userName", "");
+		}
+		
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
