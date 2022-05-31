@@ -1,6 +1,7 @@
 package com.isj.Annuarium.webapp.service;
 
 import com.isj.Annuarium.webapp.model.dto.ActeDto;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -16,4 +17,6 @@ public interface IActe {
     List<ActeDto> searchActeByKeyword(String keyword);
 
     ActeDto updateActe(ActeDto acteDto);
+
+    byte[] exportReport(ActeDto acteDto) throws FileNotFoundException, JRException;
 }
