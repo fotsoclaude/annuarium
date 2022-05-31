@@ -117,7 +117,7 @@ public class ActeController {
 		params.put("programme","programme");
 
 		// Fetching the student from the data database.
-		final JRBeanCollectionDataSource source = new JRBeanCollectionDataSource(iActe.listActes());
+		final JRBeanCollectionDataSource source = new JRBeanCollectionDataSource(iActe.listeActes());
 
 		JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, source);
