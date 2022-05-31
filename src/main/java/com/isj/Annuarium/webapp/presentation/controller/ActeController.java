@@ -107,8 +107,8 @@ public class ActeController {
 
 	public void getReportsinPDF(HttpServletResponse response) throws JRException, IOException {
 
-		//Compiled report
-		InputStream jasperStream = (InputStream) this.getClass().getResourceAsStream("/actenaissance.jasper");
+		//Compiled report-
+		InputStream jasperStream = (InputStream) this.getClass().getResourceAsStream("/actepdf.jrxml");
 
 		//Adding attribute names
 		Map params = new HashMap<>();

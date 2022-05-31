@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="520" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1c88d071-e5f9-4150-bcc3-1b98f62d113b">
-	<field name="dateNaissance" class="java.lang.String"/>
+	<field name="dob" class="java.lang.String"/>
 	<field name="lieuNaissance" class="java.lang.String"/>
 	<field name="nom" class="java.lang.String"/>
 	<field name="nomPrenomMere" class="java.lang.String"/>

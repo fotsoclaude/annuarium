@@ -1,7 +1,5 @@
 package com.isj.Annuarium.webapp.model.entities;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.*;
 import lombok.NoArgsConstructor;
@@ -20,17 +18,13 @@ public class Acte {
     private Long id;
 
     @Column(nullable = false)
-    private     String numero;
+    private String numero;
 
-    private     String nom;
-    private     String prenom;
-    private     String dob;
-    private     String lieuNaissance;
-    private     String nomPrenomPere;
-    private     String nomPrenomMere;
-
-
-
-
+    private String nom;
+    private String prenom;
+    private String dob;
+    private String lieuNaissance;
+    private String nomPrenomPere;
+    private String nomPrenomMere;
 
 }
